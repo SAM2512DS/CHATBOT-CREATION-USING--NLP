@@ -1,16 +1,21 @@
-import random 
-import json 
-import pickle 
-import numpy as np 
-import nltk 
 from keras.models import load_model 
 from nltk.stem import WordNetLemmatizer 
+import nltk
+nltk.download('punkt_tab')
+nltk.download('wordnet')
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+import json
+import pickle
+import numpy as np
+import random
+
 
 lemmatizer = WordNetLemmatizer() 
-intents = json.loads(open("intense.json").read()) 
+intents = json.loads(open("intents(2).json").read()) 
 words = pickle.load(open('words.pkl', 'rb')) 
 classes = pickle.load(open('classes.pkl', 'rb')) 
-model = load_model('chatbotmodel.h5') 
+model = load_model('chatbot_model.h5') 
 
 def clean_up_sentences(sentence): 
 	sentence_words = nltk.word_tokenize(sentence) 
