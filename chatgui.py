@@ -1,6 +1,11 @@
 #Creating GUI with tkinter
+from email.mime import base
+from sklearn import base
 import tkinter
-from tkinter import *def send():
+from tkinter import *
+
+from main import predict_class
+def send():
     msg = EntryBox.get("1.0",'end-1c').strip()
     EntryBox.delete("0.0",END)
     if msg != '':
@@ -10,7 +15,8 @@ from tkinter import *def send():
         res = chatbot_response(msg)
         ChatLog.insert(END, "Bot: " + res + '\n\n')
         ChatLog.config(state=DISABLED)
-        ChatLog.yview(END)base = Tk()
+        ChatLog.yview(END)
+base = Tk()
 base.title("Hello")
 base.geometry("400x500")
 base.resizable(width=FALSE, height=FALSE)
